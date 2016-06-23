@@ -1,6 +1,8 @@
 # --------------------------------------------------------------------------
+#
 # Classification of fruits based on reflectance data
 # Code by Shreyas Skandan Shivakumar at University of Pennsylvania (2016)
+#
 # --------------------------------------------------------------------------
 
 import numpy as np
