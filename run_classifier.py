@@ -10,8 +10,16 @@ import matplotlib.pyplot as plt
 from sklearn import svm, datasets
 
 
-filename = 'data/svmData.dat'
-allData = np.loadtxt(filename, delimiter=',')
+filename = '/Users/shreyasskandan/Desktop/ReflectanceData/Fruits/Gold_Delc_A_Reflection_13-30-22-189.txt'
+with open(filename) as f:
+    polyShape = []
+    for line in f:
+        line = line.split() # to deal with blank 
+        if line:            # lines (ie skip them)
+            line = [float(i) for i in line]
+            polyShape.append(line)
+
+#allData = np.loadtxt(filename, delimiter=',')
 
 X = allData[:,:-1]
 Y = allData[:,-1]
