@@ -23,9 +23,9 @@ end
 trainingSetX = zeros(total_instances,2*data_length);
 trainingSetY = zeros(total_instances,1);
 
+ii = 1;
 % Load data into variables and save to mat file
 for fruits = 1:length(DirList)
-    fruitfilename = sprintf('fruit%d.mat',fruits);
     for instance = 1:length(DirList{fruits})
         fruitVar = DirList{fruits};
         filename = fruitVar(instance).name;
@@ -36,6 +36,11 @@ for fruits = 1:length(DirList)
         totalDataXi = [[cell2mat(data_0(1));cell2mat(data_rest(1))];...
                        [cell2mat(data_0(2));cell2mat(data_rest(2))]];
         fclose(fileid);
+        % Load training data into X variable
+        trainingSetX(ii,:) = totalDataXi;
+        % Load training data label into Y variable
+        trainingSetY(ii,1) = fruits;
+        ii = ii + 1;
     end
-    save(fruitfilename,'A');
+    save('/Users/shreyasskandan/Desktop/ReflectanceData/Fruits/fruitData.mat','trainingSetX','trainingSetY');
 end
