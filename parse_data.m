@@ -1,3 +1,21 @@
+% -------------------------------------------------------------------------
+% ---------------------- REFLECTANCE CLASSIFICATION -----------------------
+% --------------------------------------- SHREYAS SKANDAN (UPenn 2016) ----
+% --------------------------------------- (sshreyas@seas.upenn.edu) -------
+
+% DATA LAYOUT
+% The following code extracts all the reflectance data and stores it in a
+% simple learning format where X contains all the training instances and Y
+% contains all the training labels. The data was collected as two columns
+% of length 2048 dimensions each. This data is extracted, rolled out into a
+% single (2048*2) dimensional vector and stored as a single row in the X
+% array. The labelled data is stored in the corresponding row index of the
+% Y vector. The current code outputs a mat file containing two variables -
+% trainingSetX and trainingSetY
+% -------------------------------------------------------------------------
+
+
+
 close all;
 clear;
 clc;
