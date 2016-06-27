@@ -20,7 +20,13 @@ for fruits = 1:length(DirList)
         fruitVar = DirList{fruits};
         filename = fruitVar(instance).name;
         fruitName = char(fruitExt(fruits));
-        A = file_read_command(strcat(mainDir,fruitName,'/',filename));
+        fileid = fopen(strcat(mainDir,fruitName,'/',filename));
+        data_0 = textscan(fileid,'%f%f',13,'headerlines',13);
+        data_rest = textscan(fileid,'%f%f');
+        total_data_matC1 = [cell2mat(data_0(1));cell2mat(data_rest(1))];
+        total_data_matC2 = [cell2mat(data_0(2));cell2mat(data_rest(2))];
+        totalDataXi = [total_data_matC1,total_data_matC2];
+        fclose(fileid);
     end
     save(fruitfilename,'A');
 end
