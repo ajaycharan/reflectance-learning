@@ -12,6 +12,14 @@
 % array. The labelled data is stored in the corresponding row index of the
 % Y vector. The current code outputs a mat file containing two variables -
 % trainingSetX and trainingSetY
+%
+% To use with MATLAB's ClassificationLearner application, an extra
+% variable 'TrainingData' is saved to the matlab file. Load this variable
+% into your workspace and run MATLAB's ClassificationLearner. Dump this
+% variable into the input source and experiment with different
+% Classification algorithms. 
+%
+% TIP: Quadratic SVM is a good place to start.
 % -------------------------------------------------------------------------
 
 
@@ -60,5 +68,6 @@ for fruits = 1:length(DirList)
         trainingSetY(ii,1) = fruits;
         ii = ii + 1;
     end
-    save('/Users/shreyasskandan/Desktop/ReflectanceData/Fruits/fruitData.mat','trainingSetX','trainingSetY');
 end
+trainingData = [trainingSetX';trainingSetY'];
+save('/Users/shreyasskandan/Desktop/ReflectanceData/Fruits/fruitData.mat','trainingSetX','trainingSetY','trainingData');
